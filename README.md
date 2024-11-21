@@ -34,13 +34,11 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ---
 
-## 🔗 Links
-- [GitHub Repository](https://github.com/seu-usuario/seu-repositorio)
-- [Link para o Site](http://link-do-site.com)
+[Link para o Site](http://link-do-site.com)
 
 ---
 
 ## 📧 Contato
 - **Nome**: Paulo Henrique Santana Motta
 - **Profissão**: Desenvolvedor Front-End
-- **LinkedIn**: [Seu LinkedIn](https://www.linkedin.com/in/seu-linkedin)
+- **LinkedIn**: [Seu LinkedIn](https://www.linkedin.com/in/paulo-henrique-santana-motta-4b159380/)
