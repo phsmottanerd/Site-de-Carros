@@ -1,0 +1,412 @@
+/* RESET GERAL */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+}
+
+/* ESTILOS GERAIS */
+body {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 600px;
+    gap: 10px;
+    align-items: center;
+    z-index: 2;
+}
+
+header img {
+    width: 250px;
+}
+
+header nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+}
+
+/* SECTION E SLIDER */
+section {
+    background: radial-gradient(circle, #9b00ff, #0033cc, #000000);
+    height: 100vh;  /* Tamanho total da tela */
+    position: relative;
+    overflow: hidden;
+}
+
+.list {
+    width: 100vw;  /* Ocupa toda a largura da tela */
+    height: 100vh;  /* Ocupa toda a altura da tela */
+    margin: auto;
+    position: relative;
+}
+
+/* Adicionando antes de cada item de carro */
+.list::before {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    top: 50%;
+    border-top: 1px solid #fff;
+}
+
+/* Animações de entrada e saída dos carros */
+.item-active {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateX(100%); /* Fora da tela inicialmente */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.item-active.active {
+    opacity: 1;
+    transform: translateX(0); /* Entrando reta */
+}
+
+.item-active.exit-left {
+    transform: translateX(-100%); /* Sai pela esquerda */
+    opacity: 0;
+}
+
+.item-active.exit-right {
+    transform: translateX(100%); /* Sai pela direita */
+    opacity: 0;
+}
+
+/* CARROS */
+.car-img {
+    position: absolute;
+    top: 50%;
+    left: 34%;
+    transform: translate(-50%, -50%) rotate(0deg); /* Inicialmente sem rotação */
+    width: 70%;
+    transition: transform 1s ease; /* Rotação com transição */
+}
+
+.item-active.active .car-img {
+    transform: translate(-50%, -50%) rotate(-30deg); /* Rota o carro quando estiver ativo */
+}
+.item-active.active .content {
+    opacity: 1;
+    transform: translateX(0); /* Retorna à posição original */
+}
+
+/* Ajustes para os textos dentro da caixa */
+.content h2 {
+    font-size: 2em;
+    line-height: 1.3em;
+    font-weight: bold;
+    margin: 0; /* Remove a margem padrão do h2 */
+    padding: 0; /* Remove o padding, para evitar deslocamento */
+}
+
+.content p {
+    font-size: 1em;
+    line-height: 1.6em; /* Melhora a legibilidade */
+    margin: 0; /* Remove margem do parágrafo */
+    padding: 0; /* Remove padding, evitando deslocamento */
+    color: #ccc;
+}
+
+/* Estilo do botão */
+.content .information-button {
+    padding: 10px 20px;
+    background-color: #9b00ff;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Alinha o botão no centro */
+    margin-top: 20px;
+}
+
+/* Efeito de hover no botão */
+.content .information-button:hover {
+    background-color: #891fd3;
+}
+/* CONTEÚDO (Textos) */
+/* Estilo para a seção de conteúdo à direita */
+/* Estilo para a seção de conteúdo à direita */
+/* Estilo para a seção de conteúdo à direita */
+.content {
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Distância da borda direita da tela */
+    transform: translateY(-50%); /* Centraliza o conteúdo verticalmente */
+    width: 300px; /* Largura da caixa */
+    background-color: rgba(0, 0, 0, 0.6); /* Cor de fundo com transparência */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    color: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os elementos dentro da caixa */
+    opacity: 0;
+    transform: translateX(200px); /* Inicialmente deslocado */
+    transition: transform 0.6s ease, opacity 0.6s ease; /* Animação suave */
+    border-left: 3px solid #fff; /* Adiciona uma linha branca do lado esquerdo */
+}
+
+/* Quando o item for ativado, o conteúdo vai aparecer */
+.item-active.active .content {
+    opacity: 1;
+    transform: translateX(0); /* Retorna à posição original */
+}
+
+/* Ajustes para os textos dentro da caixa */
+.content h2 {
+    font-size: 2em;
+    line-height: 1.3em;
+    font-weight: bold;
+    margin: 0; /* Remove a margem padrão do h2 */
+    padding: 0; /* Remove o padding, para evitar deslocamento */
+}
+
+.content p {
+    font-size: 1em;
+    line-height: 1.6em; /* Melhora a legibilidade */
+    margin: 0; /* Remove margem do parágrafo */
+    padding: 0; /* Remove padding, evitando deslocamento */
+    color: #ccc;
+}
+
+/* Estilo do botão */
+.content .information-button {
+    padding: 10px 20px;
+    background-color: #9b00ff;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+}
+
+/* Quando o item for ativado, o conteúdo vai aparecer */
+.item-active.active .content {
+    opacity: 1;
+    transform: translateX(0); /* Retorna à posição original */
+}
+
+/* Ajustes para os textos dentro da caixa */
+
+
+/* Estilo do botão */
+.content .information-button {
+    padding: 10px 20px;
+    background-color: #9b00ff;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Alinha o botão no centro */
+    margin-top: 20px;
+}
+
+/* Efeito de hover no botão */
+
+
+/* Quando o item for ativado, o conteúdo vai aparecer */
+.item-active.active .content {
+    opacity: 1;
+    transform: translateX(0); /* Retorna à posição original */
+}
+
+/* Ajustes para os textos dentro da caixa */
+.content h2 {
+    font-size: 2em;
+    line-height: 1.3em;
+    font-weight: bold;
+    margin: 0; /* Remove a margem padrão do h2 */
+    padding: 0; /* Remove o padding, para evitar deslocamento */
+}
+.content p {
+    font-size: 1em;
+    line-height: 1.6em; /* Melhora a legibilidade */
+    margin: 0; /* Remove margem do parágrafo */
+    padding: 0; /* Remove padding, evitando deslocamento */
+    color: #ccc;
+}
+
+/* Texto que aparece com animação */
+.item-active.active .content {
+    opacity: 1;
+    transform: translateX(0); /* Aparece na posição correta */
+}
+
+
+
+.description {
+    color: #d9d9d9;
+    font-size: 12px;
+    max-width: 400px;
+    transition-delay: 0.4s;
+}
+
+.information-button {
+    border-radius: 30px;
+    height: 35px;
+    margin-bottom: 40px;
+    width: 150px;
+    text-transform: uppercase;
+    border: 2px solid #891fd3;
+    background-color: #9b00ff;
+    color: #fff;
+    cursor: pointer;
+    transition-delay: 0.6s;
+}
+
+/* SETA DE NAVEGAÇÃO */
+.arrows {
+    position: absolute;
+    width: 90vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrows button img {
+    width: 20px;
+    height: auto;
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #933411;
+}
+
+/* INDICADORES */
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 60%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicators ul {
+    display: flex;
+    gap: 10px;
+}
+
+.indicators li {
+    width: 20px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.indicators .number {
+    font-size: 5em;
+    color: #fff;
+}
+
+.indicators li.active {
+    background-color: #0033cc;
+}
+
+button:nth-child(1) {
+    transform: rotate(180deg); /* Gira a seta ao invés de inverter */
+}
+
+/* Cores de fundo dos carros */
+.item-active:nth-child(1) {
+    background: radial-gradient(circle, #b22a2a, #9b00ff, #0033cc); /* Vermelho metálico */
+}
+
+.item-active:nth-child(2) {
+    background: radial-gradient(circle, #a2761d, #c7af0e, #d6e507cb); /* Laranja metálico */
+}
+
+.item-active:nth-child(3) {
+    background: radial-gradient(circle, #1d8b1d, #227322, #126912); /* Verde metálico */
+}
+
+.item-active:nth-child(4) {
+    background: radial-gradient(circle, #1e90ff, #4682b4, #5f9ea0); /* Azul metálico */
+}
+/* Ajustando a imagem do carro para todos os carros */
+.car-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg); /* Inicialmente sem rotação */
+    width: 70%; /* Ajusta o tamanho de todos os carros */
+    height: auto; /* Mantém a proporção */
+    transition: transform 1s ease; /* Transição suave ao girar */
+}
+
+/* Quando o item estiver ativo, gira a imagem do carro */
+.item-active.active .car-img {
+    transform: translate(-50%, -50%) rotate(-30deg); /* Rota o carro para baixo quando estiver ativo */
+}
+
+/* Garantindo que todas as imagens tenham o mesmo tamanho */
+.item-active img {
+    width: 100%; /* Faz com que todas as imagens ocupem 100% da largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Ajustando as cores de fundo para cada item */
+.item-active:nth-child(1) {
+    background: radial-gradient(circle, #b22a2a, #9b00ff, #0033cc); /* Vermelho metálico */
+}
+
+.item-active:nth-child(2) {
+    background: radial-gradient(circle, #d9ca27, #ff6347, #ff1493); /* Laranja metálico */
+}
+
+.item-active:nth-child(3) {
+    background: radial-gradient(circle, #32cd32, #228b22, #006400); /* Verde metálico */
+}
+
+.item-active:nth-child(4) {
+    background: radial-gradient(circle, #1e90ff, #4682b4, #5f9ea0); /* Azul metálico */
+}footer {
+    background-color: #000; /* Cor de fundo do rodapé */
+    color: #fff; /* Cor do texto */
+    text-align: center; /* Alinha o texto no centro */
+    padding: 20px 0; /* Adiciona espaçamento acima e abaixo do texto */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  footer em {
+    font-style: italic;
+  }
+  
